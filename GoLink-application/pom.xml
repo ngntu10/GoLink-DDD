@@ -17,4 +17,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.GoLink</groupId>
+            <artifactId>GoLink-domain</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.GoLink</groupId>
+            <artifactId>GoLink-infrastructure</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>

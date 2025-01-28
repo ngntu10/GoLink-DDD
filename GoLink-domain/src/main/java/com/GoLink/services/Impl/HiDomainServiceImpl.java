@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HiDomainServiceImpl implements HiDomainService {
+    
     @Autowired
     private HiDomainRepository hiDomainRepository;
 
