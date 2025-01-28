@@ -1,0 +1,7 @@
+package com.GoLink.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RedisConfig {
+}
