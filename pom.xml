@@ -11,6 +11,9 @@
     <modules>
         <module>GoLink-start</module>
         <module>GoLink-controller</module>
+        <module>GoLink-application</module>
+        <module>GoLink-infrastructure</module>
+        <module>GoLink-domain</module>
     </modules>
 
     <properties>

@@ -9,7 +9,7 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>GoLink-controller</artifactId>
+    <artifactId>GoLink-infrastructure</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -17,11 +17,4 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.GoLink</groupId>
-            <artifactId>GoLink-application</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-    </dependencies>
 </project>
