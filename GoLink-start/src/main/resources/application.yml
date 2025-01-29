@@ -6,16 +6,16 @@ server:
       
 resilience4j:
   circuitbreaker:
-    configs:
+    instances:
       default:
-        registerHealthIndicator: true
-        slidingWindowSize: 10
-        permittedNumberOfCallsInHalfOpenState: 3
-#        slidingWindowType: TIME_BASED
-        minimumNumberOfCalls: 5
-        waitDurationInOpenState: 5s
-        failureRateThreshold: 50
-        eventConsumerBufferSize: 10
+              registerHealthIndicator: true
+              slidingWindowSize: 10
+              permittedNumberOfCallsInHalfOpenState: 3
+      #        slidingWindowType: TIME_BASED
+              minimumNumberOfCalls: 5
+              waitDurationInOpenState: 5s
+              failureRateThreshold: 50
+              eventConsumerBufferSize: 10
   ratelimiter:
     instances:
       backendA:
@@ -33,3 +33,15 @@ resilience4j:
         limitForPeriod: 5
         limitRefreshPeriod: 10s
         timeoutDuration: 1s
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: 
+          - '*'
+  endpoint:
+    health:
+      show-details: always
