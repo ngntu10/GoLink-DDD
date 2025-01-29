@@ -4,20 +4,32 @@ server:
     threads:
       max: 10 #
       
-resilience4j.ratelimiter:
-  instances:
-    backendA:
-      limitForPeriod: 2    # Max 2 requests allowed per 10 seconds.
-      limitRefreshPeriod: 10s  # Refreshes the limit every 10 seconds.
-      timeoutDuration: 0    # No waiting for new permits; requests are rejected if no permits are available.
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+#        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+  ratelimiter:
+    instances:
+      backendA:
+        limitForPeriod: 2    # Max 2 requests allowed per 10 seconds.
+        limitRefreshPeriod: 10s  # Refreshes the limit every 10 seconds.
+        timeoutDuration: 0    # No waiting for new permits; requests are rejected if no permits are available.
       
-      # timeoutDuration Explained:
-      # - If set to 0s: Requests are rejected immediately when no permits are left.
-      # - If set to >0s (e.g., 2s): Requests will wait up to 2 seconds for a permit before failing.
+        # timeoutDuration Explained:
+        # - If set to 0s: Requests are rejected immediately when no permits are left.
+        # - If set to >0s (e.g., 2s): Requests will wait up to 2 seconds for a permit before failing.
 
-      registerHealthIndicator: true
-      eventConsumerBufferSize: 100
-    backendB:
-      limitForPeriod: 6
-      limitRefreshPeriod: 500ms
-      timeoutDuration: 3s
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 100
+      backendB:
+        limitForPeriod: 5
+        limitRefreshPeriod: 10s
+        timeoutDuration: 1s

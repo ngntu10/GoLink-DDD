@@ -1,4 +1,4 @@
-package com.GoLink.config;
+package com.GoLink.config.cache;
 
 import org.springframework.context.annotation.Configuration;
 
